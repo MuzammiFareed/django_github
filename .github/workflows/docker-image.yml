@@ -18,7 +18,6 @@ jobs:
 #      git fetch --prune --unshallow
     - name: Build the Docker image
       run:
-        export PYTHONPATH=src
         docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     - name: Deploy to Heroku
       env:
