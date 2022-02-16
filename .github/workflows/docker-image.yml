@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run:  |
-      git fetch --prune --unshallow
+      git fetch --prune --unshallo
     - name: Build the Docker image
       run:
         export PYTHONPATH=src
