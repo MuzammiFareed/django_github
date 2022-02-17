@@ -22,11 +22,11 @@ jobs:
         docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     - name: Deploy to Heroku
       env:
-        HEROKU_TOKEN_BASE: ${{ secrets.HEROKU_TOKEN_BASE }}
+        HEROKU_PI_TOKEN: ${{ secrets.HEROKU_PI_TOKEN }}
         HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
       #if: github.ref == 'refs/heads/master' && job.status == 'sucess'
       run: |
-        git remote add heroku https://heroku:$HEROKU_TOKEN_BASE@git.heroku.com/$HEROKU_APP_NAME.git
+        git remote add heroku https://heroku:$HEROKU_PI_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git
         git push heroku HEAD:master -f
         
 
